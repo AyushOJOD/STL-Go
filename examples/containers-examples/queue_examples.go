@@ -8,30 +8,27 @@ import (
 func ExampleQueue() {
 	q := containers.NewQueue[string]()
 
-	q.Push("apple")
-	q.Push("banana")
-	q.Push("cherry")
+	q.Push("A")
+	q.Push("B")
+	q.Push("C")
 
-	// Front element
 	front, _ := q.Front()
 	fmt.Println("Front:", front)
 
-	// Pop elements
-	for i := 0; i < 3; i++ {
-		val, ok := q.Pop()
-		if ok {
-			fmt.Println("Popped:", val)
-		}
+	fmt.Println("Queue contents:", q.Data())
+
+	for !q.IsEmpty() {
+		val, _ := q.Pop()
+		fmt.Println("Popped:", val)
 	}
 
-	// Try popping from empty queue
-	_, ok := q.Pop()
-	fmt.Println("Empty pop?", ok)
+	fmt.Println("IsEmpty?", q.IsEmpty())
 
 	// Output:
-	// Front: apple
-	// Popped: apple
-	// Popped: banana
-	// Popped: cherry
-	// Empty pop? false
+	// Front: A
+	// Queue contents: [A B C]
+	// Popped: A
+	// Popped: B
+	// Popped: C
+	// IsEmpty? true
 }
