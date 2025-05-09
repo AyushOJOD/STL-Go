@@ -1,5 +1,0 @@
-1. Sorting checking sort might not be working as expected. (Done)
-
-TODO: Queue examples and tests
-
-// Should I add a copy method to the containers?
