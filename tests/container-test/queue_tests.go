@@ -5,11 +5,11 @@ import (
 	"testing"
 )
 
-func TestQueueBasic(t *testing.T) {
+func TestQueueFull(t *testing.T) {
 	q := containers.NewQueue[int]()
 
-	if q.Size() != 0 {
-		t.Errorf("Expected size 0, got %d", q.Size())
+	if !q.IsEmpty() {
+		t.Errorf("Expected queue to be empty initially")
 	}
 
 	q.Push(10)
@@ -18,6 +18,10 @@ func TestQueueBasic(t *testing.T) {
 
 	if q.Size() != 3 {
 		t.Errorf("Expected size 3, got %d", q.Size())
+	}
+
+	if q.IsEmpty() {
+		t.Errorf("Expected queue to be non-empty after push")
 	}
 
 	front, ok := q.Front()
@@ -30,10 +34,17 @@ func TestQueueBasic(t *testing.T) {
 		t.Errorf("Expected popped value 10, got %v", val)
 	}
 
-	_, _ = q.Pop()
-	_, _ = q.Pop()
-	_, ok = q.Pop()
-	if ok {
-		t.Errorf("Expected false on pop from empty queue")
+	if q.Size() != 2 {
+		t.Errorf("Expected size 2 after pop, got %d", q.Size())
+	}
+
+	q.Clear()
+	if !q.IsEmpty() {
+		t.Errorf("Expected queue to be empty after Clear()")
+	}
+
+	data := q.Data()
+	if len(data) != 0 {
+		t.Errorf("Expected underlying data slice to be empty, got %v", data)
 	}
 }

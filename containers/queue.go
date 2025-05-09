@@ -1,13 +1,13 @@
 package containers
 
 // Queue is a generic FIFO (first-in, first-out) container.
-type Queue[T any] struct {
+type Queue[T comparable] struct {
 	data []T
 }
 
 // NewQueue creates and returns a new empty queue.
 // @return pointer to a new Queue[T]
-func NewQueue[T any]() *Queue[T] {
+func NewQueue[T comparable]() *Queue[T] {
 	return &Queue[T]{
 		data: []T{},
 	}
@@ -45,4 +45,22 @@ func (q *Queue[T]) Front() (T, bool) {
 // @return integer count of elements
 func (q *Queue[T]) Size() int {
 	return len(q.data)
+}
+
+// IsEmpty checks if the queue is empty.
+// @return true if the queue is empty, false otherwise
+func (q *Queue[T]) IsEmpty() bool {
+	return len(q.data) == 0
+}
+
+// Clear removes all elements from the queue.
+// @return pointer to the queue
+func (q *Queue[T]) Clear() {
+	q.data = []T{}
+}
+
+// Data returns the underlying data slice.
+// @return the underlying data slice
+func (q *Queue[T]) Data() []T {
+	return q.data
 }
