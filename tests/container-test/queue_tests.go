@@ -1,8 +1,9 @@
 package tests
 
 import (
-	"STL-go/containers"
 	"testing"
+
+	"github.com/AyushOJOD/stl-go/containers"
 )
 
 func TestQueueFull(t *testing.T) {

@@ -1,8 +1,9 @@
 package containers_examples
 
 import (
-	"STL-go/containers"
 	"fmt"
+
+	"github.com/AyushOJOD/stl-go/containers"
 )
 
 func ExampleLists() {
