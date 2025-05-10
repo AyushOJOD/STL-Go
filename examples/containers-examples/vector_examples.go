@@ -15,9 +15,13 @@ func ExampleVector() {
 	vec.PushBack(40)
 	vec.PushBack(50)
 
+	// Convenience range variables
+	from := 0
+	to := len(vec.Data())
+
 	// Example of Reverse
 	fmt.Println("Original Vector:", vec.Data())
-	algorithms.Reverse(vec.Data())
+	algorithms.Reverse(vec.Data(), from, to)
 	fmt.Println("Reversed Vector:", vec.Data())
 
 	// Example of ForEach
@@ -28,29 +32,29 @@ func ExampleVector() {
 
 	// Example of Sort
 	fmt.Println("Sorted Vector:")
-	algorithms.Sort(vec.Data())
+	algorithms.Sort(vec.Data(), from, to)
 	fmt.Println(vec.Data())
 
 	// Example of IsSorted
-	isSorted := algorithms.IsSorted(vec.Data())
+	isSorted := algorithms.IsSorted(vec.Data(), from, to)
 	fmt.Printf("Is vector sorted? %v\n", isSorted)
 
-	// Example of SortFunc with a custom comparison (Descending order)
+	// Example of SortComp with a custom comparison (Descending order)
 	fmt.Println("Sorted in Descending Order:")
-	algorithms.SortFunc(vec.Data(), func(a, b int) bool {
+	algorithms.SortComp(vec.Data(), from, to, func(a, b int) bool {
 		return a > b
 	})
 	fmt.Println(vec.Data())
 
 	// Example of GetMax
-	maxVal, maxIdx := algorithms.GetMax(vec.Data())
+	maxVal, maxIdx := algorithms.GetMax(vec.Data(), from, to)
 	fmt.Printf("Max Value: %d at Index: %d\n", maxVal, maxIdx)
 
 	// Example of GetMin
-	minVal, minIdx := algorithms.GetMin(vec.Data())
+	minVal, minIdx := algorithms.GetMin(vec.Data(), from, to)
 	fmt.Printf("Min Value: %d at Index: %d\n", minVal, minIdx)
 
 	// Example of Accumulate (Sum)
-	totalSum := algorithms.Accumulate(vec.Data())
+	totalSum := algorithms.Accumulate(vec.Data(), from, to)
 	fmt.Printf("Sum of vector elements: %d\n", totalSum)
 }
