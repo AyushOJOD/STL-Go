@@ -25,5 +25,5 @@ A generic, modular, and extensible C++ STL-inspired library for Go — featuring
 ## 📦 Installation
 
 ```bash
-go get github.com/AyushOJOD/go-stl
+go get github.com/AyushOJOD/stl-go
 ```
