@@ -27,3 +27,15 @@ A generic, modular, and extensible C++ STL-inspired library for Go — featuring
 ```bash
 go get github.com/AyushOJOD/stl-go
 ```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues, fork the repo, and submit pull requests.
+
+---
+
+## 🙋‍♂️ Author
+
+Made with ❤️ by [Ayush Srivastava](https://github.com/AyushOJOD)
