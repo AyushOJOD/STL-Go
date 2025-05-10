@@ -1,4 +1,4 @@
-module STL-go
+module github.com/AyushOJOD/stl-go
 
 go 1.23.3
 

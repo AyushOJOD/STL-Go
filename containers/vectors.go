@@ -1,8 +1,9 @@
 package containers
 
 import (
-	"STL-go/utils"
 	"fmt"
+
+	"github.com/AyushOJOD/stl-go/utils"
 )
 
 // Vector is a generic dynamic array container similar to C++'s std::vector.
