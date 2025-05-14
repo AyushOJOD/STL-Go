@@ -7,7 +7,7 @@ import (
 )
 
 func TestPairBasic(t *testing.T) {
-	p := containers.NewPair[int, string](1, "apple")
+	p := containers.NewPair(1, "apple")
 
 	if p.First != 1 || p.Second != "apple" {
 		t.Errorf("Expected (1, 'apple'), got (%v, %v)", p.First, p.Second)
